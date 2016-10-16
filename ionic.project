@@ -5,6 +5,10 @@
 		{
 		  "path": "/OxygenWeb/commonService/fileUploadSingle",
 		  "proxyUrl": "http://localhost:8080/OxygenWeb/commonService/fileUploadSingle"
+		},
+		{
+		  "path": "/OxygenWeb/commonService/fileDownloadSingle",
+		  "proxyUrl": "http://localhost:8080/OxygenWeb/commonService/fileDownloadSingle"
 		}
 	]
 }
