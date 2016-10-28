@@ -25,8 +25,9 @@ econny.work.tree.prototype.setTitle = function(title){
 
 econny.work.tree.prototype.findNode = function(id, currNode){
 	
-	if(currNode.children){	
-	debugger;
+	if(currNode.id == id){
+		return currNode;
+	}else if(currNode.children){
 		for(var i=0;i<currNode.children.length;i++){
 			if(currNode.children[i].id == id){
 				return currNode.getChild(i);
@@ -39,29 +40,15 @@ econny.work.tree.prototype.findNode = function(id, currNode){
 	}
 };
 
-econny.work.tree.prototype.findNodeFromRoot = function(id){
-	if(this.root.id == id){
-		return this.root;
-	}else{
-		this.findNode(id, this.root);
-	}
-};
-
-econny.work.tree.prototype.deleteNodeFromRoot = function(id){
-	if(this.root.id == id){
-		return this.root;
-	}else{
-		econny.work.tree.prototype.deleteNode(id, this.root);
-	}
-};
-
 econny.work.tree.prototype.deleteNode = function(id, currNode){
 	
-	for(var i=0;i<currNode.children.length;i++){
-		if(currNode.children[i].id == id){
-			currNode.children.splice(i,1);
-		}else{
-			econny.work.tree.prototype.deleteNode(id, currNode.children[i]);
+	if(currNode.children){	
+		for(var i=0;i<currNode.children.length;i++){
+			if(currNode.children[i].id == id){
+				currNode.children.splice(i,1);
+			}else{
+				this.deleteNode(id, currNode.children[i]);
+			}
 		}
 	}
 };

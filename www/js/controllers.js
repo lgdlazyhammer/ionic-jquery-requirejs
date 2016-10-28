@@ -84,18 +84,25 @@ angular.module('starter.controllers', [])
   };
   
   var myTree = new econny.work.tree(new econny.work.node("123","first level node"), "my new tree");
+  console.log("************after init first level node**************");
   console.log(myTree);
+  console.log("************first level node**************");
   console.log(myTree.getTree());
   
-  var myFirstNode = myTree.findNodeFromRoot("123");
+  var myFirstNode = myTree.findNode("123", myTree.getTree());
+  console.log("************first level node**************");
   console.log(myFirstNode);
   
   myFirstNode.addChild(new econny.work.node("456","second level node")); 
+  console.log("************after insert second level**************");
   console.log(myTree);
   
-  var mySecondNode = myTree.findNodeFromRoot("456");
-  console.log(mySecondNode);
-  
+  var mySecondNode = myTree.findNode("456", myTree.getTree());
   mySecondNode.addChild(new econny.work.node("789","third level node")); 
+  console.log("************after insert third level node**************");
+  console.log(myTree);
+  
+  var mySecondNode = myTree.deleteNode("456", myTree.getTree());
+  console.log("*********after delete second level node**********");
   console.log(myTree);
 });
