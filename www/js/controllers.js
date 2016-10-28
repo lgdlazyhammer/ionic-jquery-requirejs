@@ -82,4 +82,20 @@ angular.module('starter.controllers', [])
   $scope.settings = {
     enableFriends: true
   };
+  
+  var myTree = new econny.work.tree(new econny.work.node("123","first level node"), "my new tree");
+  console.log(myTree);
+  console.log(myTree.getTree());
+  
+  var myFirstNode = myTree.findNodeFromRoot("123");
+  console.log(myFirstNode);
+  
+  myFirstNode.addChild(new econny.work.node("456","second level node")); 
+  console.log(myTree);
+  
+  var mySecondNode = myTree.findNodeFromRoot("456");
+  console.log(mySecondNode);
+  
+  mySecondNode.addChild(new econny.work.node("789","third level node")); 
+  console.log(myTree);
 });
